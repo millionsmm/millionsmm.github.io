@@ -96,7 +96,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>题目：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*黄金圣斗士拯救雅典娜，雅典娜在右下角</div><div class="line">* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血</div><div class="line">* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，</div><div class="line">* 初始血量至少是多少？</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 黄金圣斗士拯救雅典娜，雅典娜在右下角</div><div class="line">* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血</div><div class="line">* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，</div><div class="line">* 初始血量至少是多少？</div></pre></td></tr></table></figure>
 <p>sample data：<br>map[3][3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* -2 　-3　 3</div><div class="line">* -5　-10　1</div><div class="line">* 0 　30　-5</div></pre></td></tr></table></figure></p>
 <p>这明显是一道动态规划的题目，题目的意思是求dp[0][0]位置的最少血量，那么我们可以考虑倒着使用动态规划，从右下角雅典娜位置开始。</p>
 <p>在右下角中，map[2][2]的数字如果是正数，那么dp[2][2]=1就能保证活着;如果是负数，那么dp[2][2]=-map[2][2]+1才能保证活着;</p>
@@ -108,7 +108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://millionsmm.github.io/2017/11/04/拯救雅典娜——倒序动态规划/" data-id="cj9lgovlh0004dnrbn0i8qyl3" class="article-share-link">Share</a>
+      <a data-url="http://millionsmm.github.io/2017/11/04/拯救雅典娜——倒序动态规划/" data-id="cj9lgsgiv0001ecrbmkmnk95u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://millionsmm.github.io/2017/11/03/今天搬家/" data-id="cj9lgovla0001dnrb9qi53su8" class="article-share-link">Share</a>
+      <a data-url="http://millionsmm.github.io/2017/11/03/今天搬家/" data-id="cj9lgsgj20004ecrbcy7ngvgi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
@@ -195,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://millionsmm.github.io/2017/11/03/my-first/" data-id="cj9lgovl40000dnrbfoqgthtd" class="article-share-link">Share</a>
+      <a data-url="http://millionsmm.github.io/2017/11/03/my-first/" data-id="cj9lgsgiq0000ecrbj2sexuat" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>

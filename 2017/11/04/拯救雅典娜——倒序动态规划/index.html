@@ -5,18 +5,18 @@
   
   <title>拯救雅典娜——倒序动态规划 | millionsmm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目： 1234*黄金圣斗士拯救雅典娜，雅典娜在右下角* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，* 初始血量至少是多少？ sample data：map[3][3]123* -2 　-3　 3* -5　-10　1* 0 　30　-5 这明显是一道动态规划的题目，题目的意思是求dp[0][0">
+  <meta name="description" content="题目： 1234* 黄金圣斗士拯救雅典娜，雅典娜在右下角* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，* 初始血量至少是多少？ sample data：map[3][3]123* -2 　-3　 3* -5　-10　1* 0 　30　-5 这明显是一道动态规划的题目，题目的意思是求dp[0][">
 <meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拯救雅典娜——倒序动态规划">
 <meta property="og:url" content="http://millionsmm.github.io/2017/11/04/拯救雅典娜——倒序动态规划/index.html">
 <meta property="og:site_name" content="millionsmm">
-<meta property="og:description" content="题目： 1234*黄金圣斗士拯救雅典娜，雅典娜在右下角* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，* 初始血量至少是多少？ sample data：map[3][3]123* -2 　-3　 3* -5　-10　1* 0 　30　-5 这明显是一道动态规划的题目，题目的意思是求dp[0][0">
+<meta property="og:description" content="题目： 1234* 黄金圣斗士拯救雅典娜，雅典娜在右下角* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，* 初始血量至少是多少？ sample data：map[3][3]123* -2 　-3　 3* -5　-10　1* 0 　30　-5 这明显是一道动态规划的题目，题目的意思是求dp[0][">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-04T15:06:08.000Z">
+<meta property="og:updated_time" content="2017-11-04T15:08:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拯救雅典娜——倒序动态规划">
-<meta name="twitter:description" content="题目： 1234*黄金圣斗士拯救雅典娜，雅典娜在右下角* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，* 初始血量至少是多少？ sample data：map[3][3]123* -2 　-3　 3* -5　-10　1* 0 　30　-5 这明显是一道动态规划的题目，题目的意思是求dp[0][0">
+<meta name="twitter:description" content="题目： 1234* 黄金圣斗士拯救雅典娜，雅典娜在右下角* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，* 初始血量至少是多少？ sample data：map[3][3]123* -2 　-3　 3* -5　-10　1* 0 　30　-5 这明显是一道动态规划的题目，题目的意思是求dp[0][">
   
     <link rel="alternate" href="/atom.xml" title="millionsmm" type="application/atom+xml">
   
@@ -96,7 +96,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>题目：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*黄金圣斗士拯救雅典娜，雅典娜在右下角</div><div class="line">* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血</div><div class="line">* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，</div><div class="line">* 初始血量至少是多少？</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 黄金圣斗士拯救雅典娜，雅典娜在右下角</div><div class="line">* 每次只能往右边或者下面走，每个位置的值代表遭遇的事件，如果是负数则扣血</div><div class="line">* 如果是正数则回血，走到任何一个位置，血量都不能少于1，为了保证救出雅典娜，</div><div class="line">* 初始血量至少是多少？</div></pre></td></tr></table></figure>
 <p>sample data：<br>map[3][3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* -2 　-3　 3</div><div class="line">* -5　-10　1</div><div class="line">* 0 　30　-5</div></pre></td></tr></table></figure></p>
 <p>这明显是一道动态规划的题目，题目的意思是求dp[0][0]位置的最少血量，那么我们可以考虑倒着使用动态规划，从右下角雅典娜位置开始。</p>
 <p>在右下角中，map[2][2]的数字如果是正数，那么dp[2][2]=1就能保证活着;如果是负数，那么dp[2][2]=-map[2][2]+1才能保证活着;</p>
@@ -108,7 +108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://millionsmm.github.io/2017/11/04/拯救雅典娜——倒序动态规划/" data-id="cj9lgovlh0004dnrbn0i8qyl3" class="article-share-link">Share</a>
+      <a data-url="http://millionsmm.github.io/2017/11/04/拯救雅典娜——倒序动态规划/" data-id="cj9lgsgiv0001ecrbmkmnk95u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
