@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Using OkHttp | millionsmm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Overview Okhttp是一个第三方的库，是由大名鼎鼎的Square公司开发的基于Http网络请求的框架。Okhttp建立在Okio库之上，比起传统的Java I／O库，okio基于共享内存池使得读写数据更加高效。Retrofit库是基于Okhttp上面写的，提供了REST风格的API。Okhttp在Android4.4 版本后，使用的是HttpUrlConnection抽象类的实现。另外，">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using OkHttp">
+<meta property="og:url" content="http://millionsmm.github.io/2017/11/06/Using-OkHttp/index.html">
+<meta property="og:site_name" content="millionsmm">
+<meta property="og:description" content="Overview Okhttp是一个第三方的库，是由大名鼎鼎的Square公司开发的基于Http网络请求的框架。Okhttp建立在Okio库之上，比起传统的Java I／O库，okio基于共享内存池使得读写数据更加高效。Retrofit库是基于Okhttp上面写的，提供了REST风格的API。Okhttp在Android4.4 版本后，使用的是HttpUrlConnection抽象类的实现。另外，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-06T04:57:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Using OkHttp">
+<meta name="twitter:description" content="Overview Okhttp是一个第三方的库，是由大名鼎鼎的Square公司开发的基于Http网络请求的框架。Okhttp建立在Okio库之上，比起传统的Java I／O库，okio基于共享内存池使得读写数据更加高效。Retrofit库是基于Okhttp上面写的，提供了REST风格的API。Okhttp在Android4.4 版本后，使用的是HttpUrlConnection抽象类的实现。另外，">
+  
+    <link rel="alternate" href="/atom.xml" title="millionsmm" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">millionsmm</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">变成狮子</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://millionsmm.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Using-OkHttp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/06/Using-OkHttp/" class="article-date">
+  <time datetime="2017-11-06T04:56:28.000Z" itemprop="datePublished">2017-11-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>►<a class="article-category-link" href="/categories/android/net/">net</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Using OkHttp
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><hr>
+<p>Okhttp是一个第三方的库，是由大名鼎鼎的Square公司开发的基于Http网络请求的框架。Okhttp建立在<a href="https://medium.com/square-corner-blog/buffering-data-with-okio-f83823d9ba25" target="_blank" rel="external">Okio</a>库之上，比起传统的Java I／O库，okio基于<a href="https://www.youtube.com/watch?v=WvyScM_S88c&amp;feature=youtu.be" target="_blank" rel="external">共享内存池</a>使得读写数据更加高效。<a href="https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit" target="_blank" rel="external">Retrofit</a>库是基于Okhttp上面写的，提供了REST风格的API。<br>Okhttp在Android4.4 版本后，使用的是HttpUrlConnection抽象类的实现。<br>另外，<a href="https://medium.com/square-corner-blog/okhttps-new-url-class-515460eea661" target="_blank" rel="external">OkHttp v2.4</a> 也更新了更多在内部管理URL的方式。它提供了HttpUrl类来替换原本的java.net.URL,java.net.URI和android.net.Uri，使得更容易去获得HTTP的端口，去解析URL和规范URL字符串资源。</p>
+<p>###Setup###</p>
+<hr>
+<p>首先，请确保你在AndroidManifest.xml中注册了网络请求的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>在app/build.gradle中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.squareup.okhttp3:okhttp:3.9.0&apos;</div></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：如果你更新了老版本的OKHttp，那么你的import也需要跟着改变:import com.squareup.okhttp.xxxx 为import okhttp3.xxxx.<br><strong>注意</strong>：如果你正打算将Picasso与OkHttp3一起使用，你可以<a href="https://github.com/codepath/android_guides/wiki/Displaying-Images-with-the-Picasso-Library#setup-picasso" target="_blank" rel="external">升级Picasso</a>到最新快照版本，或者使用自定义的下载器。这个改变是必须的，直到某个Picasso的release版本在<a href="https://github.com/square/picasso/issues/1256" target="_blank" rel="external">这里</a>发布。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">compile &apos;com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后会把OkHttpClient和OkHttp3Downloader包起来使用。<br><strong>注意</strong>：当使用OkHttp3的时候，推荐在声明这个对象的时候使用单例模式，因为OkHttp3不再使用全局的连接池，每个新的OkHttpClient都有自己的连接池。更多细节看<a href="https://github.com/square/okhttp/blob/master/CHANGELOG.md#version-300-rc1" target="_blank" rel="external">这里</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// Use OkHttpClient singleton</div><div class="line">OkHttpClient client = new OkHttpClient();</div><div class="line">Picasso picasso = new Picasso.Builder(context).downloader(new OkHttp3Downloader(client)).build();</div></pre></td></tr></table></figure>
+<p>翻译到这里，歇一会儿</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://millionsmm.github.io/2017/11/06/Using-OkHttp/" data-id="cj9nptrwx00007krbyh5si3eu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/04/拯救雅典娜——倒序动态规划/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">拯救雅典娜——倒序动态规划</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/net/">net</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/daily-record/">daily record</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/daily-record/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/daily-record/ignore/">ignore</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm/" style="font-size: 20px;">algorithm</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/06/Using-OkHttp/">Using OkHttp</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/04/拯救雅典娜——倒序动态规划/">拯救雅典娜——倒序动态规划</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/03/今天搬家/">今天搬家</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/03/my-first/">my_first</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Wilber Lim<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
