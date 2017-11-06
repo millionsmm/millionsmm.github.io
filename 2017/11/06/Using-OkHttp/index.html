@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="millionsmm">
 <meta property="og:description" content="Overview Okhttp是一个第三方的库，是由大名鼎鼎的Square公司开发的基于Http网络请求的框架。Okhttp建立在Okio库之上，比起传统的Java I／O库，okio基于共享内存池使得读写数据更加高效。Retrofit库是基于Okhttp上面写的，提供了REST风格的API。Okhttp在Android4.4 版本后，使用的是HttpUrlConnection抽象类的实现。另外，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-06T04:57:26.000Z">
+<meta property="og:updated_time" content="2017-11-06T05:00:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using OkHttp">
 <meta name="twitter:description" content="Overview Okhttp是一个第三方的库，是由大名鼎鼎的Square公司开发的基于Http网络请求的框架。Okhttp建立在Okio库之上，比起传统的Java I／O库，okio基于共享内存池使得读写数据更加高效。Retrofit库是基于Okhttp上面写的，提供了REST风格的API。Okhttp在Android4.4 版本后，使用的是HttpUrlConnection抽象类的实现。另外，">
@@ -97,8 +97,7 @@
       
         <h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><hr>
 <p>Okhttp是一个第三方的库，是由大名鼎鼎的Square公司开发的基于Http网络请求的框架。Okhttp建立在<a href="https://medium.com/square-corner-blog/buffering-data-with-okio-f83823d9ba25" target="_blank" rel="external">Okio</a>库之上，比起传统的Java I／O库，okio基于<a href="https://www.youtube.com/watch?v=WvyScM_S88c&amp;feature=youtu.be" target="_blank" rel="external">共享内存池</a>使得读写数据更加高效。<a href="https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit" target="_blank" rel="external">Retrofit</a>库是基于Okhttp上面写的，提供了REST风格的API。<br>Okhttp在Android4.4 版本后，使用的是HttpUrlConnection抽象类的实现。<br>另外，<a href="https://medium.com/square-corner-blog/okhttps-new-url-class-515460eea661" target="_blank" rel="external">OkHttp v2.4</a> 也更新了更多在内部管理URL的方式。它提供了HttpUrl类来替换原本的java.net.URL,java.net.URI和android.net.Uri，使得更容易去获得HTTP的端口，去解析URL和规范URL字符串资源。</p>
-<p>###Setup###</p>
-<hr>
+<h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><hr>
 <p>首先，请确保你在AndroidManifest.xml中注册了网络请求的权限</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</div></pre></td></tr></table></figure>
 <p>在app/build.gradle中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.squareup.okhttp3:okhttp:3.9.0&apos;</div></pre></td></tr></table></figure></p>
@@ -111,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://millionsmm.github.io/2017/11/06/Using-OkHttp/" data-id="cj9nptrwx00007krbyh5si3eu" class="article-share-link">Share</a>
+      <a data-url="http://millionsmm.github.io/2017/11/06/Using-OkHttp/" data-id="cj9npx9pz000085rbqf2vz3d1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
